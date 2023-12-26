@@ -1,0 +1,193 @@
+:root {
+    --bg-color: #e0e0e0;
+    --text-color: #1d1d1d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.header__container {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: #137c32;
+    top: 0;
+    z-index: 100;
+}
+
+.modes {
+    position: absolute;
+    display: flex;
+    right: 2%;
+}
+
+.logo {
+    display: flex;
+    position: absolute;
+    left: 2%;
+    align-items: center;
+    text-decoration: none;
+    color: #241744;
+    justify-content: space-between;
+}
+
+.logo img {
+    margin-right: 5px;
+    width: 30px;
+}
+
+.logoCell {
+    width: 30px;
+    margin-left: 5px;
+    display: none;
+}
+
+.container-search {
+    position: relative;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: #241744;
+    padding: 4px 0 4px 4px;
+    border-radius: 10px;
+}
+
+.search {
+    border-radius: 5px;
+    padding: 0 6px;
+    width: 80%;
+}
+
+.btnSearch {
+    background-color: transparent;
+}
+
+button {
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    margin: 0 10px;
+}
+
+.darkb {
+    color: #222;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 60px auto 100px auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.hide-container {
+    display: none;
+}
+
+@media screen and (max-width: 540px) {
+    .container {
+        width: 70%;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .container .pelicula .poster {
+        margin-bottom: 10px;
+        border-radius: 15px;
+    }
+
+    .logoCell {
+        position: absolute;
+        display: flex;
+        left: 4%;
+        top: 10px;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .container-search {
+        position: relative;
+        height: 24px;
+        width: 170px;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        background-color: #241744;
+        padding: 5px;
+        border-radius: 10px;
+    }
+}
+
+.container .pelicula {
+    text-align: center;
+}
+
+.container .pelicula .titulo {
+    font-size: 20px;
+    font-weight: 1000;
+}
+
+.container .pelicula .poster {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
+
+.container .pelicula .poster:hover {
+    transform: scale(0.96);
+    opacity: 0.5;
+}
+
+.pagination {
+    position: fixed;
+    bottom: 0;
+    background: #100a1f;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+}
+
+.hide {
+    display: none;
+}
+
+.pagination button {
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 50px;
+    width: 200px;
+    background: #241744;
+    color: #fff;
+    border-radius: 100px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    transition: 0.3s ease all;
+}
+
+.pagination button:hover {
+    background: #137c32;
+}

@@ -1,35 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
-	<link rel="stylesheet" href="estilos.css">
-	<title>APiMovieDb</title>
-</head>
-<body>
-	<div class="header__container">
-		<button class="darkb">
-			<i class="fas fa-solid fa-moon"></i>
-		<p class="par">Negro</p>
-		</button>
-		<button class="whiteb">
-			<i class="fas fa-regular fa-sun"></i>
-			<p class="par">Blanco</p>
-		</button>
-	</div>
-	<div class="contenedor" id="contenedor"></div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon" />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="styles.css" />
+        <title>MoviesR</title>
+    </head>
+    <body>
+        <header>
+            <div class="header__container">
+                <a class="logo" href="/"
+                    ><img src="/assets/logo.png" alt="logo"  />MoviesR
+                </a>
+				<a href="/"
+                    >
+					<img src="/assets/logo.png" alt="logo_mobile" class="logoCell">
+                </a>
+				
+				<div class="container-search">
+				<input
+					type="search"
+					placeholder="Your movie"
+					class="search"
+					id="search"
+                    />
+                    <button type="submit" class="btnSearch" id="btnSearch">
+						Search!
+                    </button>
+				</div>
+                </form>
+                <div class="modes">
+                    <button class="darkb">
+                        <i class="fas fa-solid fa-moon"></i>
+                    </button>
+                    <button class="whiteb">
+                        <i class="fas fa-regular fa-sun"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <div class="container " id="container"></div>
 
-	<div class="paginacion">
-		<button id="btnAnterior">Anterior</button>
-		<button id="btnSiguiente">Siguiente</button>
-	</div>
+        <div class="pagination">
+            <button id="btnPrevious">Previous</button>
+            <button id="btnNext">Next</button>
+        </div>
 
-
-	<script src="app.js"></script>
-</body>
+        <script src="scripts.js" ></script>
+    </body>
 </html>
