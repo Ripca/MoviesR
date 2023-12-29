@@ -9,6 +9,6 @@ This is a test page to practice requests to an API in this case, the MovieDb, he
  - The MovieDb API
  
  ## Preview
--https://github.com/Ripca/MoviesR/blob/main/preview/Trending%20movies.PNG
--https://github.com/Ripca/MoviesR/blob/main/preview/Search%20functionality.PNG
--https://github.com/Ripca/MoviesR/blob/main/preview/darkmode.PNG
+![](https://github.com/Ripca/MoviesR/blob/main/preview/Trending%20movies.PNG)
+![](https://github.com/Ripca/MoviesR/blob/main/preview/Search%20functionality.PNG)
+![](https://github.com/Ripca/MoviesR/blob/main/preview/darkmode.PNG)
