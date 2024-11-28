@@ -6,8 +6,6 @@ const baseUrl = "https://api.themoviedb.org/3/search/movie";
 const rootStyles = document.documentElement.style;
 
 //Logic to get the trending movies
-
-//It depends on the button pressed if the page consulted increases or decreses
 btnNext.addEventListener("click", () => {
     if (page <= 1000) {
         page += 1;
@@ -37,7 +35,7 @@ const btnWhite = document.querySelector(".whiteb").addEventListener("click", () 
 const loadMovies = async () => {
     try {
         const response = await fetch(
-            `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=${page}`
+            `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=${page}&language=es`
         );
 
         const data = await response.json();
@@ -45,22 +43,16 @@ const loadMovies = async () => {
             movies = "";
             data.results.forEach((movie) => {
                 movies += `
-				<div class="pelicula">
-					<img class="poster" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}
-					">	
-					<h3 class="titulo">${movie.title}</h3>
-				</div>
-					`;
+                <div class="pelicula" data-id="${movie.id}">
+                    <img class="poster" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}">
+                    <h3 class="titulo">${movie.title}</h3>
+                    <div class="description" id="desc-${movie.id}">${movie.overview}</div> <!-- Description in Spanish -->
+                </div>
+                `;
             });
             document.getElementById("container").innerHTML = movies;
-        } else if (response.status == 401) {
-            console.log(
-                "Authentication failed: You do not have permissions to access the service"
-            );
-        } else if (response.status == 404) {
-            console.log("Invalid id: The pre-requisite id is invalid or not found");
         } else {
-            console.log("Unknown error");
+            console.error("Error: " + response.status);
         }
     } catch (error) {
         console.error("Something went wrong:", error);
@@ -69,12 +61,10 @@ const loadMovies = async () => {
 
 loadMovies();
 
-//Logic to search a movie
-
-//Function that receive the valie of the search and make the subsequent request with that value
+// Logic to search a movie
 const fetchMovies = async (search) => {
     try {
-        const response = await fetch(`${baseUrl}?query=${search}&api_key=${API_KEY}`);
+        const response = await fetch(`${baseUrl}?query=${search}&api_key=${API_KEY}&language=es`);
         const data = await response.json();
         if (response.status == 200) {
             return data;
@@ -86,8 +76,6 @@ const fetchMovies = async (search) => {
 
 const btnSearch = document.getElementById("btnSearch");
 
-//An asynchronous function is created that listens to the click of the search button and reads the value of the input to then make a request with the fetchMovies funtion and we pass that value to bring the array of 20 positions and later we do the foreach to go through it and by each position of the array we create a container of the movie class that contains the image and the title of the movie and we keep that container and then we joined it with the movies variable and finally we obtain the main container and we pass it all the movies as a value through the movies variable
-
 btnSearch.addEventListener("click", async () => {
     let search = document.getElementById("search").value;
     if (search.length > 1) {
@@ -95,12 +83,12 @@ btnSearch.addEventListener("click", async () => {
         movies = "";
         data.results.forEach((movie) => {
             movies += `
-                <div class="pelicula">
-                    <img class="poster" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}
-                    ">
+                <div class="pelicula" data-id="${movie.id}">
+                    <img class="poster" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}">
                     <h3 class="titulo">${movie.title}</h3>
+                    <div class="description" id="desc-${movie.id}">${movie.overview}</div> <!-- Description in Spanish -->
                 </div>
-                    `;
+                `;
         });
         document.getElementById("container").innerHTML = movies;
         document.querySelector(".pagination").classList.add("hide");

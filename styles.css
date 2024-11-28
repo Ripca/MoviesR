@@ -138,56 +138,44 @@ button {
 
 .container .pelicula {
     text-align: center;
+    position: relative; /* Necessary for positioning the description */
+    overflow: hidden;
+    border-radius: 15px;
 }
 
 .container .pelicula .titulo {
     font-size: 20px;
     font-weight: 1000;
+    margin-top: 10px;
 }
 
 .container .pelicula .poster {
     width: 100%;
     margin-bottom: 10px;
     border-radius: 15px;
+    transition: opacity 0.3s ease; /* Smooth opacity change */
 }
 
 .container .pelicula .poster:hover {
-    transform: scale(0.96);
-    opacity: 0.5;
+    opacity: 0.5; /* Fade the image on hover */
 }
 
-.pagination {
-    position: fixed;
-    bottom: 0;
-    background: #100a1f;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 10px;
-}
-
-.hide {
+.container .pelicula .description {
     display: none;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    position: absolute;
+    top: 0; /* Position the description on top of the image */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    border-radius: 15px;
+    z-index: 2;
 }
 
-.pagination button {
-    cursor: pointer;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 50px;
-    width: 200px;
-    background: #241744;
-    color: #fff;
-    border-radius: 100px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 600;
-    transition: 0.3s ease all;
-}
-
-.pagination button:hover {
-    background: #137c32;
+/* Show the description when hovering over the movie card */
+.container .pelicula:hover .description {
+    display: block;
 }
